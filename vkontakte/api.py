@@ -79,7 +79,7 @@ def signature(api_secret, params):
 # It works this way: API class has 'get' method but _API class doesn't.
 
 class _API(object):
-    def __init__(self, api_id=None, api_secret=None, token=None, **defaults):
+    def __init__(self, api_id=None, api_secret=None, token=None, api_version=None, **defaults):
 
         if not (api_id and api_secret or token):
             raise ValueError("Arguments api_id and api_secret or token are required")
@@ -89,6 +89,10 @@ class _API(object):
         self.token = token
         self.defaults = defaults
         self.method_prefix = ''
+        if api_version is None:
+            self.api_version = '3.0'
+        else:
+            self.api_version = api_version
 
     def _get(self, method, timeout=DEFAULT_TIMEOUT, **kwargs):
         status, response = self._request(method, timeout=timeout, **kwargs)
@@ -152,7 +156,7 @@ class _API(object):
                 api_id=str(self.api_id),
                 method=method,
                 format='JSON',
-                v='3.0',
+                v=self.api_version,
                 random=random.randint(0, 2 ** 30),
             )
             params.update(kwargs)
