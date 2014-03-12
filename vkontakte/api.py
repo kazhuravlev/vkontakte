@@ -136,6 +136,17 @@ class _API(object):
     def _signature(self, params):
         return signature(self.api_secret, params)
 
+    def get_auth_url(self, scopes, redirect_uri=None, display=None):
+        base_url = 'https://oauth.vk.com/authorize/?'
+        params = dict(
+            client_id=self.api_id,
+            scope=','.join(scopes),
+            redirect_uri=redirect_uri or 'http://oauth.vk.com/blank.html',
+            display=display or 'page',
+            response_type='token'
+        )
+        return base_url + urllib.parse.urlencode(params)
+
     def _request(self, method, timeout=DEFAULT_TIMEOUT, **kwargs):
 
         for key, value in kwargs.iteritems():
