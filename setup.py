@@ -1,24 +1,24 @@
 #!/usr/bin/env python
 from distutils.core import setup
 
-version='1.3.3'
+version='1.3.4'
 
 setup(
-    name='vkontakte',
+    name='vkontakte2',
     version=version,
-    author='Mikhail Korobov',
-    author_email='kmike84@gmail.com',
+    author='Prosto Chewey',
+    author_email='prosto.chewey@gmail.com',
 
     packages=['vkontakte'],
 
-    url='http://bitbucket.org/kmike/vkontakte/',
+    url='https://github.com/prosto-chewey/vkontakte/',
     license = 'MIT license',
-    description = "vk.com (aka vkontakte.ru) API wrapper",
+    description = 'vk.com (vkontakte.ru) API wrapper',
 
     long_description = open('README.rst').read() + open('CHANGES.rst').read(),
 
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 4',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
