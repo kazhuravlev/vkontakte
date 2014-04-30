@@ -18,7 +18,7 @@ setup(
     long_description = open('README.rst').read() + open('CHANGES.rst').read(),
 
     classifiers=[
-        'Development Status :: 4',
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
