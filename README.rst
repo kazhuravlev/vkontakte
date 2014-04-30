@@ -16,7 +16,7 @@ Installation
 
 ::
 
-    $ pip install vkontakte
+    $ pip install vkontakte2
 
 Usage
 =====
