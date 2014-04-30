@@ -11,7 +11,7 @@ except ImportError:
     import json
 from vkontakte import http
 
-API_URL = 'http://api.vk.com/api.php'
+API_URL = 'https://api.vkontakte.ru/method/'
 SECURE_API_URL = 'https://api.vkontakte.ru/method/'
 DEFAULT_TIMEOUT = 1
 REQUEST_ENCODING = 'utf8'
@@ -164,8 +164,7 @@ class _API(object):
         else:
             # http://vkontakte.ru/developers.php?oid=-1&p=Взаимодействие_приложения_с_API
             params = dict(
-                api_id=str(self.api_id),
-                method=method,
+                api_id=str(self.api_id), 
                 format='JSON',
                 v=self.api_version,
                 random=random.randint(0, 2 ** 30),
@@ -173,8 +172,8 @@ class _API(object):
             params.update(kwargs)
             params['timestamp'] = int(time.time())
             params['sig'] = self._signature(params)
-            url = API_URL
-            secure = False
+            url = API_URL + method
+            secure = True
         data = urllib.urlencode(params)
 
         headers = {"Accept": "application/json",
