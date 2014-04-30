@@ -1,24 +1,15 @@
+==========
+vkontakte2
+==========
+
+Установка
 =========
-vkontakte
-=========
-
-.. image:: https://travis-ci.org/kmike/vkontakte.png?branch=master
-   :target: https://travis-ci.org/kmike/vkontakte
-.. image:: https://coveralls.io/repos/kmike/vkontakte/badge.png?branch=master
-   :target: https://coveralls.io/r/kmike/vkontakte
-
-This is a vk.com (aka vkontakte.ru, largest Russian social network)
-python API wrapper. The goal is to support all API methods (current and future)
-that can be accessed from server.
-
-Installation
-============
 
 ::
 
     $ pip install vkontakte2
 
-Usage
+Использование
 =====
 
 ::
@@ -51,9 +42,3 @@ Usage
     >>> # syntax sugar for 'secure.*' methods
     >>> print vk.secure.getSMSHistory()
     None
-
-All API methods that can be called from server should be supported.
-
-See http://bit.ly/9Nzc8h for detailed API help.
-
-OAuth2 access_token is supported (docs are here http://vkontakte.ru/developers.php?oid=-1&p=Авторизация)
