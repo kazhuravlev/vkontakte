@@ -11,8 +11,8 @@ except ImportError:
     import json
 from vkontakte import http
 
-API_URL = 'https://api.vkontakte.ru/method/'
-SECURE_API_URL = 'https://api.vkontakte.ru/method/'
+API_URL = 'https://api.vk.com/method/'
+SECURE_API_URL = API_URL
 DEFAULT_TIMEOUT = 1
 REQUEST_ENCODING = 'utf8'
 
@@ -96,7 +96,7 @@ class _API(object):
 
     def _get(self, method, timeout=DEFAULT_TIMEOUT, **kwargs):
         status, response = self._request(method, timeout=timeout, **kwargs)
-        if not (200 <= status <= 299):
+        if not (200 <= status <= 299): # what about 3xx codes?
             raise VKError({
                 'error_code': status,
                 'error_msg': "HTTP error",
